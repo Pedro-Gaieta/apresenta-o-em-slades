@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Podkova", serif;
+    transition: .6s ease;
+}
+
+body {
+    color: #eee;
+    background-color: #000;
+    font-size: 12px;
+}
+
+header {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin: auto;
+}
+
+header a {
+    margin-left: 6rem;
+    color: #eee;
+    font-size: 1rem;
+}
+
+.conteiner {
+    height: 100vh;
+    width: 100vw;
+    margin-top: -50px;
+}
+
+.conteiner .list .list-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.conteiner .list .list-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%);
+}
+
+.conteiner .list .list-item .content {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    color: #eee;
+    width: 80%;
+    padding-right: 30%;
+    text-shadow: 2px 1px 2px #000;
+}
+
+.title {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 10rem;
+}
+
+.description {
+    font-size: 1.3rem;
+}
+
+.butoom {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 50px;
+    margin-top: 1rem;
+    gap: 10px;
+}
+
+.list .list-item .content .butoom button {
+    background-color: #eee;
+    font-family: 300;
+    letter-spacing: 4px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.list .list-item .content .butoom button:nth-child(2) {
+    background-color: transparent;
+    border: solid 1px #eee;
+    color: #eee;
+}
+
+.list .list-item .content .butoom button:nth-child(2):hover {
+    background-color: #eee;
+    color: #000;
+
+
+}
+
+.list .list-item .content .butoom button:hover {
+    background-color: transparent;
+    border: solid 1px #eee;
+    color: #eee;
+}
+
+.conteiner .thumb{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    gap: 10px;
+    display: flex;
+}
+.conteiner .thumb .thumb-list{
+    width: 135px;
+    height: 200px;
+    position: relative;
+}
+.conteiner .thumb .thumb-list img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(80%);
+    border-radius: 15px;
+}
+.conteiner .thumb .thumb-list .content{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+.arrwos{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 120px;
+    left: 120px;
+    gap: 10px;
+    width: 300px;
+}
+.arrwos button{
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background-color:#eee4;
+    color: #eee;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.arrwos button:hover{
+    background-color: #000;
+    color: #0d9900;
+    font-size: 14px; 
+}
+
+/*movimento thamb*/
+.conteiner.next .thumb{
+    animation: lateralmov .5s linear 1 forwards;
+}
+@keyframes lateralmov {
+    from{
+        transform: translateX(150px);
+    }
+}
+
+
+/*movimento lateral*/
+.conteiner.next .thumb .thumb-list:nth-last-child(1){
+    animation: largura .5s linear 1 forwards;
+}
+@keyframes largura {
+    from{
+        width: 0;
+        opacity: 0;
+    }
+}
+
+
+/*animação na letra*/
+.conteiner .list .list-item:nth-last-child(1) .content .butoom,
+.conteiner .list .list-item:nth-last-child(1) .content .title,
+.conteiner .list .list-item:nth-last-child(1) .content .description{
+    transform: translateX(30px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showcont .3s 1s linear 1 forwards
+}
+
+@keyframes showcont {
+ to{
+  transform: translateX(0);
+  filter: blur(0);
+  opacity: 1;  
+ }   
+}
+
+.conteiner .list .list-item:nth-last-child(1) .content .title{
+    animation-delay: 1.2s;
+}
+.conteiner .list .list-item:nth-last-child(1) .content .butoom{
+    animation-delay: 1.4s;
+}
+.conteiner .list .list-item:nth-last-child(1) .content .description{
+    animation-delay: 1.8s;
+}
+.conteiner .list .list-item:nth-last-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: telamov .6s linear 1 forwards;
+}
+@keyframes telamov {
+    to{
+        bottom: 0;
+        border-radius: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+.conteiner .list .list-item:nth-child(1) img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: telaentra 4s linear 1 forwards;
+}
+@keyframes telaentra {
+    to{
+        width: 139px;
+        height: 200px;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 30px;
+    }
+}
+
+/*Responsividade*/
+@media (max-width:600px) {
+     .title {
+    font-size: 5rem;
+    font-weight: 10;
+    line-height: 10pc;
+
+} 
+.description{
+    display: none;
+}
+
+header a {
+    text-transform: uppercase;
+    margin-left:25px;
+    font-size: 1rem;
+    text-shadow: #0224ff 2px 2px 20px;
+    font-size: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.arrwos{
+    position: absolute;
+    bottom: 120px;
+    left: 40px;
+}
+}
